@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Agregar Usuario</title>
+	<link rel="icon" type="imagen/png" th:href="@{img/LOGO1.jpg}" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2017.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2021.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-2017.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-win8.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+	<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet'>
+	<!--Estilos encabezado-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/encabezadoestilos.css}">
+
+	<!--Estilos formulario-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/usuarioEstilos.css}">
+		<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <script src="https://kit.fontawesome.com/816766908f.js" crossorigin="anonymous"></script>
+     
+     <!-- IziToast mensajes -->
+	<link rel="stylesheet" th:href="@{/iziToast-master/dist/css/iziToast.min.css}">
+
+</head>
+      
+</head>
+<body style="background: lightgoldenrodyellow; font-family:Rubik">
+	<div th:include="home/encabezadoInicio.html::headerHome"></div>
+	<div class="container">
+				<br>
+				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center">
+				
+				<div class="container">
+					<div class="row">
+					<div th:if=${param.exito}>
+						<div class="alert alert-info"> 
+						¡Se ha registrado exitosamente!
+						</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				
+				<div class="card bg-dark text-white">
+					<h3 class="text-center">Registro Usuario</h3>
+				</div>
+				<br>
+				
+
+			<form th:action="@{/cdsp/usuarios/guardarcliente}" id="formularioUsuario" method="POST">
+				
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__nombres">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Nombres</label>
+							<div class="formulario__grupo-input">
+								<input name="nombres" id="nombres" type="text"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Digite su nombre completos"   class="formulario__input">
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">El nombre solo puede contener letras</p>
+						</div>
+					</div>
+	
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__apellidos">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Apellidos</label>
+							<div class="formulario__grupo-input">
+								<input name="apellidos" id="apellidos" type="text"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Digite su apellido completo"  class="formulario__input" required>
+									<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">El apellido solo puede contener letras</p>
+						</div>
+					</div>
+	
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__idUsuario">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Documento</label>
+							<div class="formulario__grupo-input">
+								<input name="idUsuario" id="idUsuario" type="number" min-length="8" max-legngth="10"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Digite su número de idetificación" required>
+									<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">El documento solo puede ocntener números.</p>
+						</div>
+					</div>
+	
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__telefono">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Telefono</label>
+							<div class="formulario__grupo-input">
+								<input name="telefono" id="telefono" type="number" min-length="8" max-legngth="10"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Digite su número de telefono" required>
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">El telefono sólo puede contener números y como minimo 10 caracateres</p>
+						</div>
+					</div>
+	
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__correo">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Correo</label>
+							<div class="formulario__grupo-input">
+								<input name="correo" id="correo" type="e-mail"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Digite su dirección de E-mail" required>
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">El correo debe ser válido</p>
+						</div>
+					</div>
+	
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__direccion">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Dirección</label>
+							<div class="formulario__grupo-input">
+								<input name="direccion" id="direccion" type="text"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Calle 11 No. 11-11 sur" required>
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">La dirección debe tener más de 5 caracateres, sin simbolos</p>
+						</div>
+					</div>
+
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__contrasenia">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Contraseña</label>
+							<div class="formulario__grupo-input">
+								<input name="contrasenia" id="contrasenia" type="password"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Digite su contraseña contraseña" required>
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros,
+								letras
+								y guion bajo.</p>
+						</div>
+					</div>
+					
+					<div class="card w3-light-grey" style="border: none; margin: 5px">
+						<div class="formulario__grupo" id="grupo__password2">
+							<label style="padding: 10px; position: relative;" class="formulario__label">Repetir Contraseña</label>
+							<div class="formulario__grupo-input">
+								<input name="contrasenia2" id="contrasenia2" type="password"
+									style="background: none; width: 90%;padding-left:10px; border: none; outline: 0px"
+									placeholder="Confirme su contraseña" required>
+								<i class="formulario__validacion-estado fas fa-times-circle"></i>
+							</div>
+							<p class="formulario__input-error">La contraseña debe ser identica</p>
+						</div>
+					</div>
+	
+	
+					<div class="w3-bar w3-margin w3-center" id="enviar">
+						<button type="submit" class="w3-button bg-dark text-white w3-hover-light-green rounded"  >Guardar</button>
+					</div>
+				</form>
+			</div>
+	</div>
+	
+			<!-- jQuery js-->
+		<script th:src="@{/jquery/jQuery3.6.1.js}"></script>
+		<!--Mensajes js-->
+		<script th:src="@{/js/mensajes.js}"></script>
+	
+		<!--IziToast js-->
+		<script th:src="@{/iziToast-master/dist/js/iziToast.min.js}"></script>
+		
+		<!-- Fonts Awesome -->
+		<script src="https://kit.fontawesome.com/816766908f.js" crossorigin="anonymous"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+	<script th:src="@{/js/validarUsuario.js}"></script>
+	</body>
+
+</html>
